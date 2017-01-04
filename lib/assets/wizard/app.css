@@ -91,3 +91,18 @@ body {
 .steps .step.active {
   color: #444;
 }
+
+#errors {
+  margin: 30px 0;
+  border: 1px solid #eee;
+}
+#errors .panel {
+  margin-bottom: 0;
+}
+#errors .panel-body {
+  padding: 15px;
+}
+
+#register-page .skip a {
+  color: #aaa;
+}

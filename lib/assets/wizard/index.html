@@ -22,37 +22,177 @@
           Step 2: Launch
         </div>
       </div>
-      <div class="step-box" id="step-1" ng-controller="Step1Ctrl">
-        <h2 class="title">Create Ionic App</h2>
-        <form ng-submit="onSubmit()">
-          <div class="form-group">
-            <label>App Name</label>
-            <input type="text" class="form-control" ng-model="app.name" required>
+      <div id="wrap" ng-switch="step" class="step-box">
+        <div id="step-1" ng-controller="Step1Ctrl" ng-switch-when="1">
+          <h2 class="title">Create Ionic App</h2>
+          <form ng-submit="onSubmit()">
+            <div class="form-group">
+              <label>App Name</label>
+              <input type="text" class="form-control" ng-model="app.name" required>
+            </div>
+            <div class="form-group">
+              <label>Project Directory Name</label>
+              <input type="text" class="form-control" ng-model="app.directory" id="app-directory" required>
+            </div>
+            <div class="form-group">
+              <label>Project Directory Path</label>
+              <input type="text" class="form-control" ng-model="app.path" id="app-path">
+              <p class="help-block">Leave empty to use current directory (<code><span ng-bind="env.cwd"></span></code>)</p>
+            </div>
+            <div class="form-group">
+              <label>App ID</label>
+              <input type="text" class="form-control" ng-model="app.id" id="app-id" required>
+            </div>
+            <div class="form-group">
+              <label>Starting Template</label>
+              <select class="form-control" ng-model="app.template">
+                <option value="super">Super Starter</option>
+                <option value="tabs">Tabs</option>
+                <option value="sidemenu">Menu</option>
+                <option value="blank">Blank</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-loud">Next</button>
+            <div ng-show="errors" id="errors">
+              <div class="panel panel-danger">
+                <div class="panel-heading">Errors creating app</div>
+                <div class="panel-body">
+                  <p>
+                    {{errors}}
+                  </p>
+                </div>
+                <div class="panel-footer">
+                  Please see the console for more information.
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div id="step-2" ng-controller="Step2Ctrl" ng-switch-when="2">
+          <h2 class="title">Create Ionic ID</h2>
+          <p>
+            Your app has been created.
+          </p>
+          <p>
+          Create a free Ionic ID to connect
+            your app with Ionic Services like Ionic View.
+          </p>
+          <div id="register-page" class="skinny-wrapper">
+            <div class="text-center">
+              <div class="form-wrapper">
+                <form id="signup-form" class="form" role="form" action="/signup" method="POST">
+                  <div class="form-group relatively">
+                    <div class="input-group">
+                      <input type="text"
+                             name="name" id="id_name"
+                             class="form-control "
+                             required
+                             autofocus
+                             value=""
+                             ng-model="data.name"
+                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                      <label for="id_name">Name</label>
+                    </div>
+                  </div>
+                  <div class="form-group relatively">
+
+                    <div class="input-group">
+                      <input type="text"
+                             required
+                             name="username"
+                             id="id_username"
+                             class="form-control  "
+                             value=""
+                             ng-model="data.username"
+                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                      <label for="id_username">Username</label>
+                    </div>
+                  </div>
+                  <div class="form-group relatively">
+
+                    <div class="input-group">
+                      <input type="text"
+                             name="company_name"
+                             id="company_name"
+                             class="optional form-control  "
+                             value=""
+                             ng-model="data.company"
+                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                      <label for="company_name">Company</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group relatively">
+
+                    <div class="input-group">
+                      <input type="tel"
+                             name="phone"
+                             id="phone"
+                             class="optional form-control  "
+                             value=""
+                             ng-model="data.phone"
+                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                      <label for="phone">Phone (optional)</label>
+                    </div>
+                  </div>
+                  <div class="form-group relatively">
+
+                    <div class="input-group">
+                      <input type="email"
+                             name="email"
+                             required
+                             id="id_email"
+                             class="form-control  "
+                             value=""
+                             ng-model="data.email"
+                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                      <label for="id_email">Email</label>
+                    </div>
+                  </div>
+                  <div class="form-group relatively">
+
+                    <div class="input-group">
+                      <input type="password"
+                             name="password"
+                             required
+                             id="id_password"
+                             class="form-control "
+                             value=""
+                             ng-model="data.password"
+                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                      <label for="id_password">Password</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group relatively">
+                    <button class="btn btn-primary btn-loud" type="submit"><span class="login-button-icon"></span>Create Ionic ID</button>
+                    <small class="legal-text">
+                      By signing up you agree to our <a href="http://ionic.io/tos" target="_blank">Terms of Service</a> and <a href="http://ionic.io/privacy" target="_blank">Privacy Policy</a>
+                    </small>
+                  </div>
+
+                  <div class="text-center help">
+                    Already have an account? <a href="/login">Log in</a>.
+                  </div>
+
+                  <div class="text-center help skip">
+                    <a href="#">Skip this step &raquo;</a>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Project Directory Name</label>
-            <input type="text" class="form-control" ng-model="app.directory" id="app-directory" required>
+          <div id="step-3" ng-controller="Step3Ctrl" ng-switch-when="3">
+            <h2 class="title">Launch App</h2>
+            <p>
+              You're ready to get building! You can run your app below or close this page.
+            </p>
+
+            <button class="btn btn-primary" ng-click="runApp()">Run App</button>
+
+            <h3>Further Resources</h3>
           </div>
-          <div class="form-group">
-            <label>Project Directory Path</label>
-            <input type="text" class="form-control" ng-model="app.path" id="app-path">
-            <p class="help-block">Leave empty to use current directory (<code><span ng-bind="env.cwd"></span></code>)</p>
-          </div>
-          <div class="form-group">
-            <label>App ID</label>
-            <input type="text" class="form-control" ng-model="app.id" id="app-id" required>
-          </div>
-          <div class="form-group">
-            <label>Starting Template</label>
-            <select class="form-control" ng-model="app.template">
-              <option value="super">Super Starter</option>
-              <option value="tabs">Tabs</option>
-              <option value="sidemenu">Menu</option>
-              <option value="blank">Blank</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary btn-loud">Next</button>
-        </form>
+        </div>
       </div>
     </div>
 
