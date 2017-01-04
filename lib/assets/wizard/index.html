@@ -8,6 +8,10 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://ionic-apps.s3.amazonaws.com/CACHE/css/7c2d5a6de02b.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="app.css">
+    <link rel="icon" type="image/png" href="http://ionicframework.com/img/meta/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://ionicframework.com/img/meta/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="http://ionicframework.com/img/meta/android-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="http://ionicframework.com/img/meta/favicon-16x16.png" sizes="16x16">
   </head>
   <body ng-controller="AppCtrl">
     <div id="main">
@@ -119,20 +123,6 @@
                              ng-model="data.company"
                              onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
                       <label for="company_name">Company</label>
-                    </div>
-                  </div>
-
-                  <div class="form-group relatively">
-
-                    <div class="input-group">
-                      <input type="tel"
-                             name="phone"
-                             id="phone"
-                             class="optional form-control  "
-                             value=""
-                             ng-model="data.phone"
-                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
-                      <label for="phone">Phone (optional)</label>
                     </div>
                   </div>
                   <div class="form-group relatively">
