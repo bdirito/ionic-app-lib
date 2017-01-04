@@ -11,7 +11,18 @@
   </head>
   <body ng-controller="AppCtrl">
     <div id="main">
-      <div id="step-1" ng-controller="Step1Ctrl">
+      <div id="steps" class="steps">
+        <div class="step active">
+          Step 1: Configure
+        </div>
+        <div class="step">
+          Step 2: Create Account
+        </div>
+        <div class="step">
+          Step 2: Launch
+        </div>
+      </div>
+      <div class="step-box" id="step-1" ng-controller="Step1Ctrl">
         <h2 class="title">Create Ionic App</h2>
         <form ng-submit="onSubmit()">
           <div class="form-group">
@@ -40,7 +51,7 @@
               <option value="blank">Blank</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary btn-loud">Create App</button>
+          <button type="submit" class="btn btn-primary btn-loud">Next</button>
         </form>
       </div>
     </div>

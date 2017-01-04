@@ -1,6 +1,20 @@
+html, body {
+
+}
+body {
+  background-color: #eee;
+}
+
 #main {
   max-width: 600px;
   margin: 50px auto;
+  border: 1px solid #aaa;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.step-box {
+  padding: 15px;
 }
 
 #loading {
@@ -61,4 +75,19 @@
   padding: 19px 15px 17px;
   transition: .2s background,.2s border-color;
   width: 100%;
+}
+
+.steps {
+  display: flex;
+  width: 100%;
+}
+.steps .step {
+  flex: 1;
+  text-align: left;
+  padding: 20px;
+  color: #aaa;
+  background-color: #eee;
+}
+.steps .step.active {
+  color: #444;
 }
