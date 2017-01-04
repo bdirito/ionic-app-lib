@@ -16,13 +16,13 @@
   <body ng-controller="AppCtrl">
     <div id="main">
       <div id="steps" class="steps">
-        <div class="step active">
+        <div class="step" ng-class="{'active': step == 1}">
           1. Create App
         </div>
-        <div class="step">
+        <div class="step" ng-class="{'active': step == 2}">
           2. Register
         </div>
-        <div class="step">
+        <div class="step" ng-class="{'active': step == 3}">
           3. Launch
         </div>
       </div>
@@ -84,7 +84,7 @@
           <div id="register-page" class="skinny-wrapper" ng-if="!_showLogin">
             <div class="text-center">
               <div class="form-wrapper">
-                <form id="signup-form" class="form" role="form" action="/signup" method="POST">
+                <form id="signup-form" class="form" role="form" ng-submit="doSignup()">
                   <div class="form-group relatively">
                     <div class="input-group">
                       <input type="text"
@@ -170,7 +170,7 @@
           </div>
           <div id="login-page" class="skinny-wrapper" ng-if="_showLogin">
             <div class="form-wrapper">
-              <form method="post" action="/api/login">
+              <form method="post" ng-submit="doLogin()">
                 <div class="form-group relatively">
                   <div class="input-group">
                     <input type="email"
@@ -179,6 +179,7 @@
                            tabindex="1"
                            class="form-control "
                            value=""
+                           ng-model="data.email"
                            onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}"
                            required>
                     <label for="id_username">Email</label>
@@ -199,6 +200,7 @@
                            tabindex="2"
                            class="form-control "
                            value=""
+                           ng-model="data.password"
                            onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.re move('not-empty')}"
                            required>
                     <label for="id_password">Password</label>
