@@ -17,17 +17,17 @@
     <div id="main">
       <div id="steps" class="steps">
         <div class="step active">
-          Step 1: Configure
+          1. Create App
         </div>
         <div class="step">
-          Step 2: Create Account
+          2. Register
         </div>
         <div class="step">
-          Step 2: Launch
+          3. Launch
         </div>
       </div>
       <div id="wrap" ng-switch="step" class="step-box">
-        <div id="step-1" ng-controller="Step1Ctrl" ng-switch-when="1">
+        <div id="step-1" ng-controller="CreateCtrl" ng-switch-when="1">
           <h2 class="title">Create Ionic App</h2>
           <form ng-submit="onSubmit()">
             <div class="form-group">
@@ -72,7 +72,7 @@
             </div>
           </form>
         </div>
-        <div id="step-2" ng-controller="Step2Ctrl" ng-switch-when="2">
+        <div id="step-2" ng-controller="CloudCtrl" ng-switch-when="2">
           <h2 class="title">Create Ionic ID</h2>
           <p>
             Your app has been created.
@@ -81,7 +81,7 @@
           Create a free Ionic ID to connect
             your app with Ionic Services like Ionic View.
           </p>
-          <div id="register-page" class="skinny-wrapper">
+          <div id="register-page" class="skinny-wrapper" ng-if="!_showLogin">
             <div class="text-center">
               <div class="form-wrapper">
                 <form id="signup-form" class="form" role="form" action="/signup" method="POST">
@@ -162,26 +162,70 @@
                   </div>
 
                   <div class="text-center help">
-                    Already have an account? <a href="/login">Log in</a>.
-                  </div>
-
-                  <div class="text-center help skip">
-                    <a href="#">Skip this step &raquo;</a>
+                    Already have an account? <a href="#" ng-click="showLogin()">Log in</a>.
                   </div>
                 </form>
               </div>
             </div>
           </div>
-          <div id="step-3" ng-controller="Step3Ctrl" ng-switch-when="3">
-            <h2 class="title">Launch App</h2>
-            <p>
-              You're ready to get building! You can run your app below or close this page.
-            </p>
+          <div id="login-page" class="skinny-wrapper" ng-if="_showLogin">
+            <div class="form-wrapper">
+              <form method="post" action="/api/login">
+                <div class="form-group relatively">
+                  <div class="input-group">
+                    <input type="email"
+                           name="username"
+                           id="id_username"
+                           tabindex="1"
+                           class="form-control "
+                           value=""
+                           onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}"
+                           required>
+                    <label for="id_username">Email</label>
+                  </div>
+                </div>
+                <div class="form-group relatively">
 
-            <button class="btn btn-primary" ng-click="runApp()">Run App</button>
-
-            <h3>Further Resources</h3>
+                  <a class="btn-inset"
+                       href="/user/reset-password"
+                       title="Forgot your password?"
+                       tabindex="4">
+                    ?
+                  </a>
+                  <div class="input-group">
+                    <input type="password"
+                           name="password"
+                           id="id_password"
+                           tabindex="2"
+                           class="form-control "
+                           value=""
+                           onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.re move('not-empty')}"
+                           required>
+                    <label for="id_password">Password</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-loud" type="submit" tabindex="3">
+                    <span class="login-button-icon"></span>Log in
+                  </button>
+                </div>
+                <div class="text-center help">
+                  Don't have an account?
+                  <a href="#" ng-click="showSignup()" tabindex="4">Sign up.</a>
+                </div>
+              </form>
+            </div>
           </div>
+        </div>
+        <div id="step-3" ng-controller="LaunchCtrl" ng-switch-when="3">
+          <h2 class="title">Launch App</h2>
+          <p>
+            You're ready to get building! You can run your app below or close this page.
+          </p>
+
+          <button class="btn btn-primary" ng-click="runApp()">Run App</button>
+
+          <h3>Further Resources</h3>
         </div>
       </div>
     </div>

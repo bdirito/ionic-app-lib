@@ -1,3 +1,4 @@
+
 html, body {
 
 }
@@ -84,12 +85,11 @@ body {
 .steps .step {
   flex: 1;
   text-align: left;
-  padding: 20px;
+  padding: 15px;
   color: #aaa;
-  background-color: #eee;
 }
 .steps .step.active {
-  color: #444;
+  color: black;
 }
 
 #errors {
