@@ -50,7 +50,11 @@ body {
 }
 .steps .step.active {
   color: black;
+}
 
+.help-block {
+  text-align: left;
+}
 
 #loading {
   opacity: 1;
@@ -121,6 +125,21 @@ body {
   padding: 15px;
 }
 
+.skinny-wrapper {
+  max-width: 500px;
+}
+#register-page .form-wrapper,
+#login-page .form-wrapper {
+  width: 500px;
+}
+
 #register-page .skip a {
   color: #aaa;
+}
+
+#login-page .form-wrapper input:focus+label, #login-page .form-wrapper input:not(.optional):valid+label, #login-page .form-wrapper input.not-empty+label, #register-page .form-wrapper input:focus+label, #register-page .form-wrapper input:not(.optional):valid+label, #register-page .form-wrapper input.not-empty+label, #reset-page .form-wrapper input:focus+label, #reset-page .form-wrapper input:not(.optional):valid+label, #reset-page .form-wrapper input.not-empty+label {
+  top: 4px;
+  background-color: white;
+  padding: 0px 5px;
+  left: 12px;
 }
