@@ -143,3 +143,10 @@ body {
   padding: 0px 5px;
   left: 12px;
 }
+#login-page .form-wrapper input:not(.optional):valid, #login-page .form-wrapper input.optional.not-empty, #register-page .form-wrapper input:not(.optional):valid, #register-page .form-wrapper input.optional.not-empty, #reset-page .form-wrapper input:not(.optional):valid, #reset-page .form-wrapper input.optional.not-empty {
+  border-color: #DEE1E9;
+}
+
+input.form-control {
+  box-shadow: none;
+}
