@@ -273,7 +273,38 @@
 
           <button class="btn btn-primary" ng-click="runApp()">Launch App</button>
 
-          <h3>Further Resources</h3>
+          <h2 class="title" ng-if="!_showLogin">Ionic Services</h2>
+          <h4 class="sub-title" ng-if="!_showLogin">A free Ionic ID gets you access to powerful Ionic tools and services</h4>
+          <div id="body-discover">
+            <section class="container tools resources" id="resources">
+              <div class="items">
+                <a class="market" href="http://market.ionic.io/?_ga=1.86807320.1072643629.1457479309" target="_blank" data-lbl="IonicMarket">
+                  <h3>Ionic Market</h3>
+                  <div class="detail">
+                    <p>
+                      All the best community-made resources, starter apps, and themes to
+                      jumpstart your Ionic app development.
+                    </p>
+                  </div>
+                </a>
+                <a class="platform" href="/cloud" target="_blank" data-lbl="IonicPlatform">
+                  <h3>Ionic Cloud</h3>
+                  <div class="detail">
+                    <p>
+                      The Ionic Cloud is a suite of cloud backend services that make
+                      building, deploying, and scaling your apps easy.
+                    </p>
+                  </div>
+                  <ul class="expanded">
+                    <li class="push">Push notifications</li>
+                    <li class="auth">User authentication</li>
+                    <li class="deploy">Live app deployment</li>
+                    <li class="package">Native app packaging</li>
+                  </ul>
+                </a>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </div>
@@ -284,5 +315,15 @@
         <span ng-bind="loadingMessage"></span>
       </div>
     </div>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44023830-26', 'auto');
+    ga('send', 'pageview');
+
+    </script>
   </body>
 </html>

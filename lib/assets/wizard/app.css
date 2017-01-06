@@ -206,3 +206,198 @@ input.form-control {
 #login-page .form-group, #register-page .form-group, #reset-page .form-group {
   margin-bottom: 15px;
 }
+
+
+#body-discover section.container .items {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+#body-discover section.container .items a {
+  -webkit-flex: 0 1 255px;
+  -ms-flex: 0 1 255px;
+  flex: 0 1 255px;
+  padding: 150px 25px 15px;
+  margin-bottom: 35px;
+  position: relative;
+  text-align: center;
+  min-height: 265px;
+  min-width: 160px;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+#body-discover section.container.tools .items a.creator::before {
+  background-position: -150px 0;
+}
+#body-discover section.container .items a::before {
+  background: url(http://ionic.io/img/discover/discover-sprite.png?1) top left no-repeat;
+  background-size: 600px;
+  width: 150px;
+  height: 150px;
+  content: '';
+  position: absolute;
+  top: 38px;
+  left: calc(50% - 75px);
+  transition: -webkit-transform .4s cubic-bezier(.155,1.105,.295,1.12);
+  transition: transform .4s cubic-bezier(.155,1.105,.295,1.12);
+  transition: transform .4s cubic-bezier(.155,1.105,.295,1.12),-webkit-transform .4s cubic-bezier(.155,1.105,.295,1.12);
+}
+#body-discover section.container .items a h3 {
+  color: #20252c;
+  line-height: 1.3em;
+  font-weight: 500;
+  margin-top: 0;
+  font-size: 16px;
+  position: absolute;
+  top: 215px;
+  left: 0;
+  right: 0;
+  transition: -webkit-transform .4s cubic-bezier(.155,1.105,.295,1.12);
+  transition: transform .4s cubic-bezier(.155,1.105,.295,1.12);
+  transition: transform .4s cubic-bezier(.155,1.105,.295,1.12),-webkit-transform .4s cubic-bezier(.155,1.105,.295,1.12);
+}
+
+#body-discover section.container .items a .detail {
+  opacity: 0;
+  position: relative;
+  -webkit-transform: translate3d(0,35px,0);
+  transform: translate3d(0,35px,0);
+  transition: opacity .1s linear,-webkit-transform .1s linear;
+  transition: opacity .1s linear,transform .1s linear;
+  transition: opacity .1s linear,transform .1s linear,-webkit-transform .1s linear;
+}
+#body-discover section.container .items a .detail p {
+  line-height: 20px;
+  font-size: 13px;
+  letter-spacing: -.01em;
+  padding: 0 13px;
+  color: #818791;
+  font-weight: 500;
+}
+#body-discover section.container .items a::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  border: 1px solid #e6ebf2;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.06);
+  transition: all .4s cubic-bezier(.155,1.105,.295,1.12);
+}
+
+#body-discover section.container .items a:active h3, #body-discover section.container .items a:hover h3 {
+    -webkit-transform: translate3d(0,-110px,0);
+    transform: translate3d(0,-110px,0);
+}
+
+#body-discover section.container .items a:active .detail, #body-discover section.container .items a:hover .detail {
+    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    transition-duration: .2s;
+    transition-timing-function: ease;
+}
+
+#body-discover section.container .items a:active::after, #body-discover section.container .items a:hover::after {
+    border-color: #dde3eb;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+#body-discover section.container .items a:active::before, #body-discover section.container .items a:hover::before {
+    -webkit-transform: translate3d(0,-50px,0) scale3d(.5,.5,1);
+    transform: translate3d(0,-50px,0) scale3d(.5,.5,1);
+}
+
+#body-discover section.container.tools .items a.creator::before {
+    background-position: -150px 0;
+}
+
+#body-discover section.container .items a.platform .expanded {
+    z-index: 2;
+}
+
+#body-discover section.container .items a .expanded {
+    position: absolute;
+    opacity: 0;
+    text-align: left;
+    top: 0;
+    right: -220px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1em;
+    transition: opacity .2s,-webkit-transform .4s cubic-bezier(.155,1.105,.295,1.12);
+    transition: transform .4s cubic-bezier(.155,1.105,.295,1.12),opacity .2s;
+    transition: transform .4s cubic-bezier(.155,1.105,.295,1.12),opacity .2s,-webkit-transform .4s cubic-bezier(.155,1.105,.295,1.12);
+    transition-delay: 0s;
+}
+
+#body-discover section.container .items a .expanded li {
+    padding: 20px 5px 20px 42px;
+    width: 100%;
+    position: relative;
+    color: #fcb52c;
+}
+#body-discover section.container .items a .expanded li::before {
+    background: url(http://ionic.io/img/discover/cloud-icons-sprite.png) center top no-repeat;
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+}
+
+#body-discover section.container .items a.platform:active .expanded, #body-discover section.container .items a.platform:hover .expanded {
+    opacity: 1;
+    -webkit-transform: translate3d(0,20px,0);
+    transform: translate3d(0,20px,0);
+    transition-delay: .15s;
+}
+
+#body-discover section.container .items a.platform:active .detail, #body-discover section.container .items a.platform:active h3, #body-discover section.container .items a.platform:active::after, #body-discover section.container .items a.platform:active::before, #body-discover section.container .items a.platform:hover .detail, #body-discover section.container .items a.platform:hover h3, #body-discover section.container .items a.platform:hover::after, #body-discover section.container .items a.platform:hover::before {
+    transition-delay: 0s;
+}
+
+#body-discover section.container .items a .expanded li.auth::before {
+    background-position: center -32px;
+}
+#body-discover section.container .items a .expanded li.auth {
+    color: #1ed176;
+}
+#body-discover section.container .items a .expanded li.auth::before {
+    background-position: center -32px;
+}
+#body-discover section.container .items a .expanded li.deploy {
+    color: #8b7df1;
+}
+
+#body-discover section.container .items a .expanded li.deploy::before {
+    background-position: center -64px;
+}
+
+#body-discover section.container .items a .expanded li.package {
+    color: #f8556c;
+}
+#body-discover section.container .items a .expanded li.package::before {
+    background-position: center -96px;
+}
+
+#body-discover section.container .items a.platform:active::after, #body-discover section.container .items a.platform:hover::after {
+    right: -106%;
+}
+
+#body-discover section.container .items a.platform:active .detail, #body-discover section.container .items a.platform:active h3, #body-discover section.container .items a.platform:active::after, #body-discover section.container .items a.platform:active::before, #body-discover section.container .items a.platform:hover .detail, #body-discover section.container .items a.platform:hover h3, #body-discover section.container .items a.platform:hover::after, #body-discover section.container .items a.platform:hover::before {
+    transition-delay: 0s;
+}
+#body-discover section.container.resources .items a.market::before {
+    background-position: -300px -300px;
+}
