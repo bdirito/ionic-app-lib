@@ -177,3 +177,9 @@ input.form-control {
 #login-page .form-group, #register-page .form-group, #reset-page .form-group {
   margin-bottom: 15px;
 }
+
+
+#step-1 .btn {
+  width: auto;
+  float: right;
+}

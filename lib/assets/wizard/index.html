@@ -7,6 +7,7 @@
     <script src="app.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://ionic-apps.s3.amazonaws.com/CACHE/css/7c2d5a6de02b.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <link rel="stylesheet" href="app.css">
     <link rel="icon" type="image/png" href="http://ionicframework.com/img/meta/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="http://ionicframework.com/img/meta/favicon-96x96.png" sizes="96x96">
@@ -55,7 +56,6 @@
                              class="form-control "
                              name="app_directory" id="id_app_directory"
                              required
-                             autofocus
                              value=""
                              ng-model="app.directory"
                              onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
@@ -67,8 +67,6 @@
                       <input type="text"
                              class="form-control "
                              name="dirpath" id="id_dirpath"
-                             required
-                             autofocus
                              value=""
                              ng-model="app.path"
                              onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
@@ -82,7 +80,6 @@
                              class="form-control "
                              name="appid" id="id_appid"
                              required
-                             autofocus
                              value=""
                              ng-model="app.id"
                              onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
@@ -100,7 +97,7 @@
                       </select>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary btn-loud">Next</button>
+                  <button type="submit" class="btn btn-primary btn-loud">Continue <i class="ion-chevron-right"></i></button>
                   <div ng-show="errors" id="errors">
                     <div class="panel panel-danger">
                       <div class="panel-heading">Errors creating app</div>
@@ -120,14 +117,8 @@
           </div>
         </div>
         <div id="step-2" ng-controller="CloudCtrl" ng-switch-when="2">
-          <h2 class="title">Create Ionic ID</h2>
-          <p>
-            Your app has been created.
-          </p>
-          <p>
-          Create a free Ionic ID to connect
-            your app with Ionic Services like Ionic View.
-          </p>
+          <h2 class="title">Create your app</h2>
+          <h4 class="sub-title">Create a free Ionic ID to connect your app with <a href="http://view.ionic.io/" target="_blank">Ionic View</a><h4>
           <div id="register-page" class="skinny-wrapper" ng-if="!_showLogin">
             <div class="text-center">
               <div class="form-wrapper">
@@ -238,9 +229,9 @@
                   <div class="errorlist" ng-if="errors.password">{{errors.password[0]}}</div>
 
                   <a class="btn-inset"
-                       href="/user/reset-password"
+                       href="https://apps.ionic.io/user/reset-password"
                        title="Forgot your password?"
-                       tabindex="4">
+                       tabindex="4" target="_blank">
                     ?
                   </a>
                   <div class="input-group">
