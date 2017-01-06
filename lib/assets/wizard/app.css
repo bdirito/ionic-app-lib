@@ -29,7 +29,7 @@ body {
   margin: 50px auto;
 }
 
-#wrap, .steps-wrap {
+#wrap {
   max-width: 600px;
 }
 .steps {
@@ -37,6 +37,7 @@ body {
   border-bottom: 1px solid #F0F2F6;
 }
 .steps-wrap {
+  max-width: 400px;
   margin: auto;
   display: flex;
   text-align: center;
@@ -44,12 +45,31 @@ body {
 }
 .steps .step {
   flex: 1;
-  text-align: left;
   padding: 15px;
   color: #aaa;
 }
+.steps .step::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  margin-bottom: -2px;
+  background: url('wizard-steps-icons.png') no-repeat transparent;
+  background-size: 100%;
+}
+
 .steps .step.active {
-  color: black;
+  color: #448BFA;
+}
+.steps .step.active::before {
+  background-position: 0px -14px;
+}
+.steps .step.done {
+  color: #448BFA;
+}
+.steps .step.done::before {
+  background-position: 0px -28px;
 }
 
 .help-block {
@@ -149,4 +169,11 @@ body {
 
 input.form-control {
   box-shadow: none;
+}
+
+#login-page .form-wrapper input, #register-page .form-wrapper input, #reset-page .form-wrapper input {
+  padding-top: 6px;
+}
+#login-page .form-group, #register-page .form-group, #reset-page .form-group {
+  margin-bottom: 15px;
 }

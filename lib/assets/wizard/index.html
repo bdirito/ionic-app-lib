@@ -17,14 +17,14 @@
     <div id="main">
       <div id="steps" class="steps">
         <div class="steps-wrap">
-          <div class="step" ng-class="{'active': step == 1}">
-            1. Create App
+          <div class="step" ng-class="{'active': step == 1, 'done': step > 1}">
+            Create
           </div>
-          <div class="step" ng-class="{'active': step == 2}">
-            2. Register
+          <div class="step" ng-class="{'active': step == 2, 'done': step > 2}">
+            Register
           </div>
-          <div class="step" ng-class="{'active': step == 3}">
-            3. Launch
+          <div class="step" ng-class="{'active': step == 3, 'done': step > 3}">
+            Launch
           </div>
         </div>
       </div>
@@ -92,6 +92,7 @@
                   <div class="form-group relatively">
                     <div class="input-group">
                       <select class="form-control" ng-model="app.template">
+                        <option value="">Template</option>
                         <option value="super">Super Starter</option>
                         <option value="tabs">Tabs</option>
                         <option value="sidemenu">Menu</option>
@@ -99,36 +100,24 @@
                       </select>
                     </div>
                   </div>
+                  <button type="submit" class="btn btn-primary btn-loud">Next</button>
+                  <div ng-show="errors" id="errors">
+                    <div class="panel panel-danger">
+                      <div class="panel-heading">Errors creating app</div>
+                      <div class="panel-body">
+                        <p>
+                          {{errors}}
+                        </p>
+                      </div>
+                      <div class="panel-footer">
+                        Please see the console for more information.
+                      </div>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
           </div>
-          <!--
-            <div class="form-group">
-              <label>Starting Template</label>
-              <select class="form-control" ng-model="app.template">
-                <option value="super">Super Starter</option>
-                <option value="tabs">Tabs</option>
-                <option value="sidemenu">Menu</option>
-                <option value="blank">Blank</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary btn-loud">Next</button>
-            <div ng-show="errors" id="errors">
-              <div class="panel panel-danger">
-                <div class="panel-heading">Errors creating app</div>
-                <div class="panel-body">
-                  <p>
-                    {{errors}}
-                  </p>
-                </div>
-                <div class="panel-footer">
-                  Please see the console for more information.
-                </div>
-              </div>
-            </div>
-          </form>
-        -->
         </div>
         <div id="step-2" ng-controller="CloudCtrl" ng-switch-when="2">
           <h2 class="title">Create Ionic ID</h2>
