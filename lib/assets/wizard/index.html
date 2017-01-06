@@ -117,92 +117,96 @@
           </div>
         </div>
         <div id="step-2" ng-controller="CloudCtrl" ng-switch-when="2">
-          <h2 class="title">Create your app</h2>
-          <h4 class="sub-title">Create a free Ionic ID to connect your app with <a href="http://view.ionic.io/" target="_blank">Ionic View</a><h4>
+          <h2 class="title" ng-if="!_showLogin">Create your Ionic account</h2>
+          <h4 class="sub-title" ng-if="!_showLogin">Create a free Ionic ID to connect your app with <a href="http://view.ionic.io/" target="_blank">Ionic View</a></h4>
+          <h2 class="title" ng-if="_showLogin">Log into your Ionic account</h2>
+          <h4 class="sub-title" ng-if="_showLogin">Connect your app with <a href="http://view.ionic.io/" target="_blank">Ionic View</a> for rapid device testing</h4>
           <div id="register-page" class="skinny-wrapper" ng-if="!_showLogin">
             <div class="text-center">
               <div class="form-wrapper">
                 <form id="signup-form" class="form" role="form" ng-submit="doSignup()">
-                  <div class="form-group relatively">
-                    <div class="errorlist" ng-if="errors.name">{{errors.name[0]}}</div>
-                    <div class="input-group">
-                      <input type="text"
-                             name="name" id="id_name"
-                             class="form-control "
-                             required
-                             autofocus
-                             value=""
-                             ng-model="data.name"
-                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
-                      <label for="id_name">Name</label>
+                  <fieldset>
+                    <div class="form-group relatively">
+                      <div class="errorlist" ng-if="errors.name">{{errors.name[0]}}</div>
+                      <div class="input-group">
+                        <input type="text"
+                               name="name" id="id_name"
+                               class="form-control "
+                               required
+                               autofocus
+                               value=""
+                               ng-model="data.name"
+                               onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                        <label for="id_name">Name</label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group relatively">
-                    <div class="errorlist" ng-if="errors.username">{{errors.username[0]}}</div>
-                    <div class="input-group">
-                      <input type="text"
-                             required
-                             name="username"
-                             id="id_username"
-                             class="form-control  "
-                             value=""
-                             ng-model="data.username"
-                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
-                      <label for="id_username">Username</label>
+                    <div class="form-group relatively">
+                      <div class="errorlist" ng-if="errors.username">{{errors.username[0]}}</div>
+                      <div class="input-group">
+                        <input type="text"
+                               required
+                               name="username"
+                               id="id_username"
+                               class="form-control  "
+                               value=""
+                               ng-model="data.username"
+                               onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                        <label for="id_username">Username</label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group relatively">
-                    <div class="errorlist" ng-if="errors.company">{{errors.company[0]}}</div>
-                    <div class="input-group">
-                      <input type="text"
-                             name="company_name"
-                             id="company_name"
-                             class="optional form-control  "
-                             value=""
-                             ng-model="data.company"
-                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
-                      <label for="company_name">Company</label>
+                    <div class="form-group relatively">
+                      <div class="errorlist" ng-if="errors.company">{{errors.company[0]}}</div>
+                      <div class="input-group">
+                        <input type="text"
+                               name="company_name"
+                               id="company_name"
+                               class="optional form-control  "
+                               value=""
+                               ng-model="data.company"
+                               onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                        <label for="company_name">Company</label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group relatively">
-                    <div class="errorlist" ng-if="errors.email">{{errors.email[0]}}</div>
-                    <div class="input-group">
-                      <input type="email"
-                             name="email"
-                             required
-                             id="id_email"
-                             class="form-control  "
-                             value=""
-                             ng-model="data.email"
-                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
-                      <label for="id_email">Email</label>
+                    <div class="form-group relatively">
+                      <div class="errorlist" ng-if="errors.email">{{errors.email[0]}}</div>
+                      <div class="input-group">
+                        <input type="email"
+                               name="email"
+                               required
+                               id="id_email"
+                               class="form-control  "
+                               value=""
+                               ng-model="data.email"
+                               onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                        <label for="id_email">Email</label>
+                      </div>
                     </div>
-                  </div>
-                  <div class="form-group relatively">
-                    <div class="errorlist" ng-if="errors.password1">{{errors.password1[0]}}</div>
-                    <div class="input-group">
-                      <input type="password"
-                             name="password"
-                             required
-                             id="id_password"
-                             class="form-control "
-                             value=""
-                             ng-model="data.password"
-                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
-                      <label for="id_password">Password</label>
+                    <div class="form-group relatively">
+                      <div class="errorlist" ng-if="errors.password1">{{errors.password1[0]}}</div>
+                      <div class="input-group">
+                        <input type="password"
+                               name="password"
+                               required
+                               id="id_password"
+                               class="form-control "
+                               value=""
+                               ng-model="data.password"
+                               onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}">
+                        <label for="id_password">Password</label>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="form-group relatively">
-                    <button class="btn btn-primary btn-loud" type="submit"><span class="login-button-icon"></span>Create Ionic ID</button>
-                    <small class="legal-text">
-                      By signing up you agree to our <a href="http://ionic.io/tos" target="_blank">Terms of Service</a> and <a href="http://ionic.io/privacy" target="_blank">Privacy Policy</a>
-                    </small>
-                  </div>
+                    <div class="form-group relatively">
+                      <button class="btn btn-primary btn-loud" type="submit"><span class="login-button-icon"></span>Create Ionic ID</button>
+                      <small class="legal-text">
+                        By signing up you agree to our <a href="http://ionic.io/tos" target="_blank">Terms of Service</a> and <a href="http://ionic.io/privacy" target="_blank">Privacy Policy</a>
+                      </small>
+                    </div>
 
-                  <div class="text-center help">
-                    Already have an account? <a href="#" ng-click="showLogin()">Log in</a>.
-                  </div>
+                    <div class="text-center help">
+                      Already have an account? <a href="#" ng-click="showLogin()">Log in</a>.
+                    </div>
+                  </fieldset>
                 </form>
               </div>
             </div>
@@ -210,48 +214,50 @@
           <div id="login-page" class="skinny-wrapper" ng-if="_showLogin">
             <div class="form-wrapper">
               <form method="post" ng-submit="doLogin()">
-                <div class="form-group relatively">
-                  <div class="errorlist" ng-if="errors.email">{{errors.email[0]}}</div>
-                  <div class="input-group">
-                    <input type="email"
-                           name="username"
-                           id="id_username"
-                           tabindex="1"
-                           class="form-control "
-                           value=""
-                           ng-model="data.email"
-                           onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}"
-                           required>
-                    <label for="id_username">Email</label>
+                <fieldset>
+                  <div class="form-group relatively">
+                    <div class="errorlist" ng-if="errors.email">{{errors.email[0]}}</div>
+                    <div class="input-group">
+                      <input type="email"
+                             name="username"
+                             id="id_username"
+                             tabindex="1"
+                             class="form-control "
+                             value=""
+                             ng-model="data.email"
+                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.remove('not-empty')}"
+                             required>
+                      <label for="id_username">Email</label>
+                    </div>
                   </div>
-                </div>
-                <div class="form-group relatively">
-                  <div class="errorlist" ng-if="errors.password">{{errors.password[0]}}</div>
+                  <div class="form-group relatively">
+                    <div class="errorlist" ng-if="errors.password">{{errors.password[0]}}</div>
 
-                  <a class="btn-inset"
-                       href="https://apps.ionic.io/user/reset-password"
-                       title="Forgot your password?"
-                       tabindex="4" target="_blank">
-                    ?
-                  </a>
-                  <div class="input-group">
-                    <input type="password"
-                           name="password"
-                           id="id_password"
-                           tabindex="2"
-                           class="form-control "
-                           value=""
-                           ng-model="data.password"
-                           onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.re move('not-empty')}"
-                           required>
-                    <label for="id_password">Password</label>
+                    <a class="btn-inset"
+                         href="https://apps.ionic.io/user/reset-password"
+                         title="Forgot your password?"
+                         tabindex="4" target="_blank">
+                      ?
+                    </a>
+                    <div class="input-group">
+                      <input type="password"
+                             name="password"
+                             id="id_password"
+                             tabindex="2"
+                             class="form-control "
+                             value=""
+                             ng-model="data.password"
+                             onblur="if(this.value.length){this.classList.add('not-empty')}else{this.classList.re move('not-empty')}"
+                             required>
+                      <label for="id_password">Password</label>
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-primary btn-loud" type="submit" tabindex="3">
-                    <span class="login-button-icon"></span>Log in
-                  </button>
-                </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary btn-loud" type="submit" tabindex="3">
+                      <span class="login-button-icon"></span>Log in
+                    </button>
+                  </div>
+                </fieldset>
                 <div class="text-center help">
                   Don't have an account?
                   <a href="#" ng-click="showSignup()" tabindex="4">Sign up.</a>
