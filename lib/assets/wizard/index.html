@@ -267,12 +267,10 @@
           </div>
         </div>
         <div id="step-3" ng-controller="LaunchCtrl" ng-switch-when="3">
-          <h2 class="title">Launch App</h2>
-          <p>
-            You're ready to get building! You can run your app below or close this page.
-          </p>
+          <h2 class="title" ng-if="!_showLogin">Launch App</h2>
+          <h4 class="sub-title" ng-if="!_showLogin">You're ready to start building.</h4>
 
-          <button class="btn btn-primary" ng-click="runApp()">Run App</button>
+          <button class="btn btn-primary" ng-click="runApp()">Launch App</button>
 
           <h3>Further Resources</h3>
         </div>
