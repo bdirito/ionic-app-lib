@@ -268,13 +268,15 @@
           </div>
         </div>
         <div id="step-3" ng-controller="LaunchCtrl" ng-switch-when="3">
-          <h2 class="title" ng-if="!_showLogin">Launch App</h2>
-          <h4 class="sub-title" ng-if="!_showLogin">You're ready to start building.</h4>
+          <h2 class="title" ng-if="!_showLogin">Launch app</h2>
+          <h4 class="sub-title" ng-if="!_showLogin">You're ready to start building! Launch your app below.</h4>
 
-          <button class="btn btn-primary" ng-click="runApp()">Launch App</button>
+          <div class="text-center">
+            <button class="btn btn-primary" ng-click="runApp()">Launch My App!</button>
+          </div>
 
-          <h2 class="title" ng-if="!_showLogin">Ionic Services</h2>
-          <h4 class="sub-title" ng-if="!_showLogin">A free Ionic ID gets you access to powerful Ionic tools and services</h4>
+          <h2 class="title" ng-if="!_showLogin">World class services to power your apps</h2>
+          <h4 class="sub-title" ng-if="!_showLogin">A free Ionic ID gets you access to powerful tools and services for scaling apps.</h4>
           <div id="body-discover">
             <section class="container tools resources" id="resources">
               <div class="items">
