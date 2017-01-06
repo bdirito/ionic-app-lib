@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Ionic Project Wizard</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.1/angular-animate.min.js"></script>
     <script src="app.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://ionic-apps.s3.amazonaws.com/CACHE/css/7c2d5a6de02b.css" type="text/css" media="screen" />
@@ -29,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div id="wrap" ng-switch="step" class="step-box">
+      <div id="wrap" ng-switch="step" class="step-box fade-anim">
         <div id="step-1" ng-controller="CreateCtrl" ng-switch-when="1">
           <h2 class="title">Create your app</h2>
           <h4 class="sub-title">Get a new Ionic app up and running</h4>
