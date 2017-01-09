@@ -282,6 +282,10 @@
             <div class="text-center help">
               Or run <code>ionic lab</code> from the command line.<br>See our <a href="http://ionicframework.com/docs/v2/cli/" target="_blank">CLI Guide</a> for more commands.
             </div>
+            <div ng-if="error" class="text-center help errorlist">
+              There was an error starting your app. Please see your terminal for more information
+              and try running <code>ionic lab</code> manually in the terminal.
+            </div>
           </div>
           <div ng-if="launched">
             <h2 class="title" ng-if="!_showLogin"><img src="checkmark.png" style="width: 64px"> Your app is running</h2>

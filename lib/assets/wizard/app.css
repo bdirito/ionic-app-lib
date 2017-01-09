@@ -306,3 +306,9 @@ input.form-control {
   margin: 30px 0;
   opacity: 0;
 }
+
+#step-3 .errorlist {
+  margin: 20px auto;
+  max-width: 450px;
+  text-align: center;
+}
