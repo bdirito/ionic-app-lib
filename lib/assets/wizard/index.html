@@ -5,6 +5,7 @@
     <title>Ionic Project Wizard</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.6.1/angular-animate.min.js"></script>
+    <script src="https://code.angularjs.org/1.6.1/angular-sanitize.min.js"></script>
     <script src="app.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://ionic-apps.s3.amazonaws.com/CACHE/css/7c2d5a6de02b.css" type="text/css" media="screen" />
@@ -271,14 +272,27 @@
           </div>
         </div>
         <div id="step-3" ng-controller="LaunchCtrl" ng-switch-when="3">
-          <h2 class="title" ng-if="!_showLogin">Launch app</h2>
-          <h4 class="sub-title" ng-if="!_showLogin">You're ready to start building! Launch your app below.</h4>
+          <div ng-if="!launched">
+            <h2 class="title" ng-if="!_showLogin">Launch app</h2>
+            <h4 class="sub-title" ng-if="!_showLogin">You're ready to start building! Launch your app below.</h4>
 
-          <div class="text-center">
-            <button class="btn btn-primary" ng-click="runApp()">Launch My App!</button>
+            <div class="text-center">
+              <button class="btn btn-primary" ng-click="runApp()">Launch My App!</button>
+            </div>
+            <div class="text-center help">
+              Or run <code>ionic lab</code> from the command line.<br>See our <a href="http://ionicframework.com/docs/v2/cli/" target="_blank">CLI Guide</a> for more commands.
+            </div>
           </div>
-          <div class="text-center help">
-            Or run <code>ionic lab</code> from the command line.<br>See our <a href="http://ionicframework.com/docs/v2/cli/" target="_blank">CLI Guide</a> for more commands.
+          <div ng-if="launched">
+            <h2 class="title" ng-if="!_showLogin"><img src="checkmark.png" style="width: 64px"> Your app is running</h2>
+            <div class="text-center">
+              <p>
+                See our <a href="http://ionicframework.com/docs/v2/cli/" target="_blank">CLI Guide</a> for the various CLI commands used to build and run your app.
+              </p>
+              <p>
+                This page can now be closed. Thanks for using Ionic!
+              </p>
+            </div>
           </div>
 
           <div class="separator"></div>
@@ -312,7 +326,8 @@
     <div id="loading" ng-show="loading">
       <div class="loading-wrap">
         <img src="loading.gif">
-        <span ng-bind="loadingMessage"></span>
+        <span class="msg" ng-bind-html="loadingMessage"></span>
+        <span class="info" ng-bind-html="loadingMessageInfo"></span>
       </div>
     </div>
     <script>
