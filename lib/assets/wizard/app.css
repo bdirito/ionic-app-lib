@@ -58,7 +58,7 @@ body {
 }
 
 #wrap {
-  max-width: 600px;
+  max-width: 650px;
 }
 #step-3 .btn {
   font-size: 14px;
@@ -246,4 +246,27 @@ input.form-control {
 }
 #services a.creator .icon {
   background-position: 0 -240px;
+}
+#step-3 {
+}
+#step-3 .no-auth {
+  margin: 20px;
+  text-align: center;
+}
+#step-3 .no-auth a {
+  color: #aaa;
+}
+
+#step-3 .separator {
+  width: 34px;
+  height: 6px;
+  margin: 40px auto;
+  background: url('separator.png') no-repeat transparent;
+  background-size: 100%;
+}
+#step-3 #services-section .title {
+  font-size: 26px;
+}
+#step-3 #services-section .sub-title {
+  font-size: 14px;
 }
