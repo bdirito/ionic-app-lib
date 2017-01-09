@@ -216,6 +216,7 @@ input.form-control {
   display: flex;
   width: 100%;
   align-items: center;
+  margin: 20px 0;
 }
 #services a {
   flex: 1;
@@ -227,6 +228,7 @@ input.form-control {
   letter-spacing: 1px;
   font-weight: 600;
   color: #272A2F;
+  font-size: 13px;
 }
 #services a .icon {
   width: 80px;
