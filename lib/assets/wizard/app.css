@@ -162,6 +162,7 @@ body {
 #loading img {
   float: left;
   margin-right: 10px;
+  margin-top: 5px;
 }
 #loading .msg {
   display: block;

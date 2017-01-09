@@ -126,6 +126,7 @@
           <div id="register-page" class="skinny-wrapper" ng-if="!_showLogin">
             <div class="text-center">
               <div class="form-wrapper">
+                <div class="errorlist" ng-if="singleError">{{singleError}}</div>
                 <form id="signup-form" class="form" role="form" ng-submit="doSignup()">
                   <fieldset>
                     <div class="form-group relatively">
@@ -184,7 +185,7 @@
                       </div>
                     </div>
                     <div class="form-group relatively">
-                      <div class="errorlist" ng-if="errors.password1">{{errors.password1[0]}}</div>
+                      <div class="errorlist" ng-if="errors.password">{{errors.password[0]}}</div>
                       <div class="input-group">
                         <input type="password"
                                name="password"
